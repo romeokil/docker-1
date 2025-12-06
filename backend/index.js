@@ -13,9 +13,12 @@ const TodoSchema=mongoose.Schema({
         type:String,
         required:true
     }
-},{timestamps:true});
+},{
+    timestamps:true,
+    collection:"Todos"
+});
 
-const Todo=mongoose.model("Todos",TodoSchema);
+const Todo=mongoose.model("Todo",TodoSchema);
 
 
 app.get('/',(req,res)=>{   
