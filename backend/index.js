@@ -1,8 +1,14 @@
 import express from 'express'
 import mongoose from 'mongoose'
-
+import cors from 'cors'
 const app=express();
+const corsOption={
+    origin:'http://localhost:5173',
+    credentials:true
+}
+app.use(cors(corsOption));
 app.use(express.json());
+
 const PORT=8000;
 const TodoSchema=mongoose.Schema({
     title:{
