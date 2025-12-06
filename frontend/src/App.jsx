@@ -42,7 +42,9 @@ function App() {
       console.log(data.newTodo);
       if(response.ok){
         alert('New task created Successfully!!')
-        getalltodos();
+        settodos((prev)=>[...prev,data.newTodo]);
+         settitle('');
+      setdescription('');
       }
       else{
         alert('Task does not created Successfully!')
@@ -64,9 +66,9 @@ function App() {
         </h1>
         <form onSubmit={submitHandler} className='flex flex-col'>
           <label htmlFor="title">Title</label>
-          <input type="text" name="title" id="title" onChange={(e)=>settitle(e.target.value)}/>
+          <input type="text" name="title" id="title" value={title} onChange={(e)=>settitle(e.target.value)}/>
           <label htmlFor='description'>Description</label>
-          <input type='text' name='description' id='description' onChange={(e)=>setdescription(e.target.value)}></input>
+          <input type='text' name='description' id='description' value={description} onChange={(e)=>setdescription(e.target.value)}></input>
           <button className='p-2 m-3 bg-orange-700'>Submit</button>
         </form>
       </div>
